@@ -4,7 +4,6 @@ namespace TaskForAutodor.Models.Repositories
 {
     static class FakeTask
     {
-        //static int countr = 0;
         public static List<ResponseView> GoTasks(int count, bool parallel)
         {
             int countr = 0;
@@ -16,8 +15,8 @@ namespace TaskForAutodor.Models.Repositories
                 Task task = Task.Run(async() =>
                 {
                     int time = Random.Shared.Next(100, 1000);//random.Next(100,1000);Random.Shared.Next(100,1000);
-                    //await Task.Delay(time);
-                    Task.Delay(time).Wait();
+                    await Task.Delay(time);
+                    //Task.Delay(time).Wait();
                     countr = Interlocked.Increment(ref countr);
                     responses.Add(new ResponseView(countr, time));
                 });
@@ -25,7 +24,6 @@ namespace TaskForAutodor.Models.Repositories
                     tasks.Add(task);
                 else
                     task.Wait();
-                
             }
             Task.WaitAll(tasks.ToArray());
             responses.Sort(delegate (ResponseView x, ResponseView y)
