@@ -9,10 +9,10 @@ Console.WriteLine("Выполнять их параллельно?\n1 - true\t2-
 bool parallel = Console.ReadLine() == "1";
 
 connection = new HubConnectionBuilder()
-                .WithUrl("https://localhost:7019/chat")
+                .WithUrl("https://localhost:7019/Task")
                 //.WithAutomaticReconnect()   // автопереподключение
                 .Build();
-
+//string? connId = "";
 connection.On<ResponseView>("Receive", (result) => {
     var newMess = $"{result.order} = {result.time}";
     total += result.time;
@@ -22,6 +22,8 @@ connection.On<ResponseView>("Receive", (result) => {
 try {
     await connection.StartAsync();
     Console.WriteLine("Произошло подключение");
+    //connId = connection.ConnectionId;
+
 }
 catch(Exception e)
 {
@@ -30,7 +32,7 @@ catch(Exception e)
 
 try
 {
-    await connection.InvokeAsync("ProcessTasks", new RequestView { tasks = tasks, parallel = parallel });
+    await connection.InvokeAsync("ProcessTasks", new RequestView {connId=connection.ConnectionId, tasks = tasks, parallel = parallel });
 }
 catch (Exception e)
 {
@@ -41,6 +43,7 @@ Console.WriteLine($"total = {total}");
 Console.ReadLine();
 
 public class RequestView {
+    public string? connId { get; set; }
     public int tasks { get; set; }
     public bool parallel { get; set; }
 }

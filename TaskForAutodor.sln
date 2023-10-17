@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskForAutodor", "TaskForAu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "Client\Client.csproj", "{6EB366E6-8071-495E-8587-C39C85BACE82}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientTwo", "ClientTwo\ClientTwo.csproj", "{4960C0D1-5DC0-430D-9ABF-3ADC2DED23FD}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{6EB366E6-8071-495E-8587-C39C85BACE82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EB366E6-8071-495E-8587-C39C85BACE82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EB366E6-8071-495E-8587-C39C85BACE82}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4960C0D1-5DC0-430D-9ABF-3ADC2DED23FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4960C0D1-5DC0-430D-9ABF-3ADC2DED23FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4960C0D1-5DC0-430D-9ABF-3ADC2DED23FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4960C0D1-5DC0-430D-9ABF-3ADC2DED23FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
