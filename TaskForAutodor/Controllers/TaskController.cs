@@ -10,10 +10,6 @@ namespace TaskForAutodor.Controllers
     [Route("[controller]")]
     public class TaskController : Controller
     {
-        IHubContext<ChatHub> hubContext;
-        public TaskController(IHubContext<ChatHub> hubContext) {
-            this.hubContext = hubContext;
-        }
 
         [HttpPost]
         public IActionResult Tasks(RequestView reqv)
